@@ -1,4 +1,4 @@
-# ov7670_to_vga
+# OV7670 to VGA with Image Processing
 
 Real-time camera-to-VGA video pipeline on a Basys3 FPGA, with selectable 3x3 image filters, written in SystemVerilog.
 
