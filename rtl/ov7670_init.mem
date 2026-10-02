@@ -1,0 +1,87 @@
+// OV7670 init table - QVGA RGB565
+// One 16-bit word per line, no internal spaces.
+// rom[0] = SCCB id address (low byte). rom[1..] = {reg_addr, reg_data}
+// NUM_REGS = 75
+
+0042   // SCCB id address, write
+
+1280   // COM7    - soft reset
+1204   // COM7    - RGB output
+1180   // CLKRC   - internal clock
+0C04   // COM3    - DCW enable (QVGA)
+3E19   // COM14   - DCW/PCLK scale enable, divide by 2 (QVGA)
+0400   // COM1
+40D0   // COM15   - RGB565, full 00-FF range
+3A04   // TSLB
+1418   // COM9    - gain ceiling
+
+4FB3   // MTX1    - colour matrix
+50B3   // MTX2
+5100   // MTX3
+523D   // MTX4
+53A7   // MTX5
+54E4   // MTX6
+589E   // MTXS
+3DC0   // COM13   - gamma enable, UV auto
+
+1716   // HSTART  - window moved right to skip dark pixels at the sensor edge
+1804   // HSTOP   - moved with HSTART to keep the 320 pixel width
+3280   // HREF
+1903   // VSTART
+1A7B   // VSTOP
+030A   // VREF
+
+0F41   // COM6
+1E00   // MVFP    - no mirror/flip
+330B
+3C78   // COM12
+6900   // GFIX
+7400
+B084
+B10C
+B20E
+B380
+
+703A   // SCALING_XSC
+7135   // SCALING_YSC
+7211   // SCALING_DCWCTR    - downsample by 2
+73F1   // SCALING_PCLK_DIV  - divide by 2 (QVGA)
+A202   // SCALING_PCLK_DELAY
+
+7A20   // gamma curve
+7B10
+7C1E
+7D35
+7E5A
+7F69
+8076
+8180
+8288
+838F
+8496
+85A3
+86AF
+87C4
+88D7
+89E8
+
+13E0   // COM8    - AGC/AWB/AEC off while setting up
+0000   // GAIN
+1000   // AECH
+0D40   // COM4
+1418   // COM9
+A505   // BD50MAX
+AB07   // BD60MAX
+2495   // AEW
+2533   // AEB
+26E3   // VPT
+9F78   // HAECC1
+A068   // HAECC2
+A103
+A6D8   // HAECC3
+A7D8   // HAECC4
+A8F0   // HAECC5
+A990   // HAECC6
+AA94   // HAECC7
+13E5   // COM8    - AGC/AWB/AEC on
+4108   // COM16   - AWB gain enable
